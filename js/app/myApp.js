@@ -10,11 +10,6 @@ function myFunct($rootScope, $scope, $http) {
             $scope.products = response.data;
         })
 
-        //     $http.get('../db/products.js').
-        // then(function (response) {
-        //     $scope.products = response.data;
-        // })
-
     $scope.onsubmitForm = function(event){
         event.prevenDefault();
         $http.post(url,$scope.insert).
@@ -30,10 +25,6 @@ function myFunct($rootScope, $scope, $http) {
     $scope.begin = 0;
     $scope.pageCount = Math.ceil($scope.products.length / 8);
 
-    $scope.first = function () {
-        $scope.begin = 0;
-    }
-
     $scope.prev = function () {
         if ($scope.begin > 0) {
             $scope.begin -= 8;
@@ -46,11 +37,6 @@ function myFunct($rootScope, $scope, $http) {
         }
     }
 
-    $scope.last = function () {
-        $scope.begin = ($scope.pageCount - 1) * 8;
-    }
-
-
     $scope.xemchitet = function(){
         Swal.fire({
             icon: 'success',
@@ -59,15 +45,5 @@ function myFunct($rootScope, $scope, $http) {
     }
 
 }
-
-// function myFunct($scope, $http) {
-//     $scope.products = [];
-
-//     $http.get('../js/products.js').
-//         then(function (response) {
-//             $scope.products = response.data;
-//         })
-
-// }
 
 app.controller("my_controller", myFunct);
