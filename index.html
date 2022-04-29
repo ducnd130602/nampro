@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <style>
+          body {
+        background-image: url(images/hinh-nen-tinh-yeu-dong-cho-smartphone.gif);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    </style>
+</head>
+
+<body ng-app="my_app">
+
+    <div class="container" ng-controller="my_controller">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mt-5 text-white">Những Cặp Đôi Yêu Nhau ❤ </h1>
+                        <h1 class="text-center mt-2 text-white">Ghép đôi ở đây chứ ở đâu Gét Go</h1>
+                    </h1>
+
+            </div>
+        </div>
+        <div class="row">
+            <!--  -->
+            <div class="col">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary text-center" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Gửi Phản Hồi
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Liên hệ mail phía dưới</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>nguyennam77223@gmail.com</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success text-center" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal2">
+                    Thêm Nhưng Cặp Đôi Yêu Nhau
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm Mới Cặp Đôi Yêu Nhau</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form action="" method="post" ng-submit="onsubmitForm($event)">
+                                <div class="modal-body">
+                                    <div class="form-group mt-3">
+                                        <label for="">Tên Cặp Đôi:</label>
+                                        <input type="text" class="form-control" ng-model="insert.name" name="name"
+                                            id="name" placeholder="VD: chí phèo ❤  thi no">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="">Hinh Ảnh:</label>
+                                        <input type="file" class="form-control" ng-model="insert.anh" name="anh"
+                                            id="anh">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="">Chúc Mừng:(Không Bắt Buộc)</label>
+                                        <input type="text" class="form-control" ng-model="insert.note" name="note"
+                                            id="note" placeholder="VD: Chúc Mừng Hạnh Phúc">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="">Link FB Nam:(Không Bắt Buộc)</label>
+                                        <input type="text" class="form-control" ng-model="insert.url1" name="url1"
+                                            id="url1"
+                                            placeholder="VD: https://www.facebook.com/profile.php?id=100033890386883">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="">Link FB Nữ:(Không Bắt Buộc)</label>
+                                        <input type="text" class="form-control" ng-model="insert.url2" name="url2"
+                                            id="url2"
+                                            placeholder="VD: https://www.facebook.com/profile.php?id=100033890386883">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" disabled>Thêm Mới</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+
+            <div class="col-12 col-sm-6 col-md-3 my-3" ng-repeat="item in products |limitTo:8:begin">
+                <div class="card h-100 ">
+                    <img src="images/{{item.anh}}" class="card-img-top" width="80%" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">{{item.note}}</p>
+                        <div class="text-center">
+                            <a href="{{item.url1}}" class="text-decoration-none">Link FB Nam</a> |
+                            <a href="{{item.url2}}" class="text-decoration-none">Link FB Nữ</a>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-primary" ng-click="xemchitet()">Xem Chi Tiết</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row text-center">
+                <nav aria-label="...">
+                    <ul class="pagination justify-content-center">
+                        <!-- <li class="page-item">
+                            <a class="page-link" href="#" ng-click="first()">First</a>
+                        </li> -->
+                        <li class="page-item">
+                            <a class="page-link" href="#" ng-click="prev()">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" ng-click="next()">Next</a>
+                        </li>
+                        <!-- <li class="page-item">
+                            <a class="page-link" href="#" ng-click="last()">Last</a>
+                        </li> -->
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="js/angularjs.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/app/myApp.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
+</body>
+
+</html>
