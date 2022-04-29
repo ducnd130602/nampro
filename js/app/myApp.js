@@ -5,7 +5,12 @@ function myFunct($rootScope, $scope, $http) {
 
     const url = "https://626b4fe26a86cd64adba3a41.mockapi.io/products";
 
-    $http.get(url).
+    // $http.get(url).
+    //     then(function (response) {
+    //         $scope.products = response.data;
+    //     })
+
+            $http.get('../db/products.js').
         then(function (response) {
             $scope.products = response.data;
         })
