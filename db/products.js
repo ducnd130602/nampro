@@ -3,8 +3,8 @@
      "name": "Mạnh Thắng ❤ Kim Cương ",
      "note": "Đẩy Thuyền Nha",
      "anh": "anh23.JPG",
-     "url1": "https://www.facebook.com/nam.nguyentri.161",
-     "url2": "https://www.facebook.com/macthi.thao.5661"
+     "url1": "",
+     "url2": "
     },
     {
      "name": "Cao Thị Hoa Trang ❤ Liêm",
